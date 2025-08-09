@@ -17,17 +17,7 @@ def mask_account_card(user_details: str) -> str:
         return f"{account_type}{get_mask_account(account_number)}"
 
 
-# if __name__ == "__main__":
-#     q = mask_account_card("Счет 73654108430135874305")
-#     print(q)
-
-
 def get_date(received_date: str) -> str:
     """Функция получает строку с датой и приводит ее к формату: "ДД.ММ.ГГГГ" """
     format_date = f"{received_date[8:10]}.{received_date[5:7]}.{received_date[:4]}"
     return format_date
-
-
-# if __name__ == "__main__":
-#     time = get_date("2024-03-11T02:26:18.671407")
-#     print(time)
