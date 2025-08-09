@@ -65,16 +65,16 @@ print(
 
 
 
-# if __name__ == "__main__":
-#     print(get_mask_card_number("7000792289606361"))
+if __name__ == "__main__":
+    print(get_mask_card_number("7000792289606361"))
 
-# if __name__ == "__main__":
-#     print(get_mask_account("73654108430135874305"))
+if __name__ == "__main__":
+    print(get_mask_account("73654108430135874305"))
 
-# if __name__ == "__main__":
-#     time = get_date("2024-03-11T02:26:18.671407")
-#     print(time)
+if __name__ == "__main__":
+    time = get_date("2024-03-11T02:26:18.671407")
+    print(time)
 
-# if __name__ == "__main__":
-#     q = mask_account_card("Счет 73654108430135874305")
-#     print(q)
+if __name__ == "__main__":
+    q = mask_account_card("Счет 73654108430135874305")
+    print(q)
