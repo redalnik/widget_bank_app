@@ -1,12 +1,9 @@
-from click import clear
-
-
 def get_mask_card_number(card_number: str) -> str:
     """Функция принимает на вход номер карты в виде числа и возвращает маску номера в формате
     XXXX XX** **** XXXX"""
     clear_card_number = "".join([number for number in card_number if number.isdigit()])
     if len(clear_card_number) == 16:
-        mask_card_number = f"{clear_card_number[:4]} {clear_card_number[4:6]}{'** ****' } {clear_card_number[12:]}"
+        mask_card_number = f"{clear_card_number[:4]} {clear_card_number[4:6]}{'** ****'} {clear_card_number[12:]}"
         return mask_card_number
     return "Неверный номер карты"
 
