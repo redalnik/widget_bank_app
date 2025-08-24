@@ -28,7 +28,7 @@ def log(filename: Optional[str] = None) -> Callable:
                     with open(filename, "a", encoding="utf-8") as f:
                         f.write(message)
                 else:
-                    print(message)
+                    print(message, end='')
             return result
 
         return wrapper
