@@ -1,5 +1,5 @@
-import pytest
-from unittest.mock import patch, Mock
+from unittest.mock import patch
+
 from src.external_api import transaction_amount  # путь поправь под свой проект
 
 
@@ -12,6 +12,7 @@ def test_transaction_amount_invalid():
     wrong_transaction = {"wrong": "data"}
     result = transaction_amount(wrong_transaction)
     assert result == 0.0
+
 
 @patch("requests.request")
 def test_transaction_amount_usd(mock_request, sample_dict_usd_transaction):
@@ -26,4 +27,3 @@ def test_transaction_amount_usd(mock_request, sample_dict_usd_transaction):
 def test_transaction_amount_no_api_key_returns_zero(sample_dict_usd_transaction):
     result = transaction_amount(sample_dict_usd_transaction)
     assert result == 0.0
-

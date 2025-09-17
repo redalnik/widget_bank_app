@@ -1,7 +1,9 @@
-import requests
-from dotenv import load_dotenv
 import os
 from typing import Dict
+
+import requests
+from dotenv import load_dotenv
+
 # import json   # для тестирования
 # from src.utils import load_transactions # для тестирования
 

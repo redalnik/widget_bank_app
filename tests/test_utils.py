@@ -1,6 +1,7 @@
-from unittest.mock import mock_open, patch, Mock
+from unittest.mock import mock_open
+from unittest.mock import patch
+
 from src.utils import load_transactions
-from tests.conftest import sample_fake_jason_in_utils
 
 
 def test_load_transaction_not_a_list(sample_dict_in_utils):
