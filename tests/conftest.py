@@ -1,4 +1,5 @@
 import pytest
+import json
 
 
 @pytest.fixture()
@@ -159,3 +160,37 @@ def card_number_generated():
              '0000 0000 0000 0003',
              '0000 0000 0000 0004',
              '0000 0000 0000 0005']
+
+
+@pytest.fixture
+def sample_dict_in_utils():
+    return {
+    "id": 441945886,
+    "state": "EXECUTED",
+    "date": "2019-08-26T10:50:58.294041",
+    "operationAmount": {
+      "amount": "31957.58",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }}}
+
+@pytest.fixture
+def sample_fake_jason_in_utils():
+    return json.dumps([{
+        "id": 441945886,
+        "state": "EXECUTED",
+        "date": "2019-08-26"}])
+
+@pytest.fixture
+def sample_dict_usd_transaction():
+    return {
+    "id": 43333386,
+    "state": "EXECUTED",
+    "date": "2018-06-26T20:50:58.294041",
+    "operationAmount": {
+      "amount": "100.10",
+      "currency": {
+        "name": "usd.",
+        "code": "USD"
+      }}}
