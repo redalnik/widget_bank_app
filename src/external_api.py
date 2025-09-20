@@ -4,9 +4,6 @@ from typing import Dict
 import requests
 from dotenv import load_dotenv
 
-# import json   # для тестирования
-# from src.utils import load_transactions # для тестирования
-
 load_dotenv()
 API_KEY = os.getenv("EXCHANGE_RATES_API_KEY")
 url = "https://api.apilayer.com/exchangerates_data/convert"
@@ -49,11 +46,3 @@ def transaction_amount(transaction: Dict) -> float:
     except Exception as ex:
         print(f"Общая ошибка: {ex}")
         return 0.0
-
-
-# if __name__ == '__main__':
-#     transactions = load_transactions("../data/operations.json")
-#     print(f"Сумма транзакции в рублях: {transaction_amount(transactions[0]):.2f}")
-#     print(f"Сумма транзакции в рублях: {transaction_amount(transactions[1]):.2f}")
-#     print(f"Сумма транзакции в рублях: {transaction_amount(transactions[2]):.2f}")
-#     print(f"Сумма транзакции в рублях: {transaction_amount(transactions[3]):.2f}")
