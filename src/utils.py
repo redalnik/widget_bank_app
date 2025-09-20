@@ -16,6 +16,7 @@ def load_transactions(file_path: str) -> List[Dict[str, Any]]:
     """Загружает данные о финансовых транзакциях из JSON-файла."""
     logger.info("Запуск функции load_transactions")
     try:
+        logger.info(f"Попытка чтения файла {file_path}")
         with open(file_path, "r", encoding="utf-8") as file:
             data = json.load(file)
             if isinstance(data, list):
@@ -25,10 +26,10 @@ def load_transactions(file_path: str) -> List[Dict[str, Any]]:
                 logger.warning(f"Некорректный тип данных: {type(data)}")
                 return []
     except FileNotFoundError:
-        logging.error(f"Ошибка, файл {file_path} не найден ")
+        logger.error(f"Ошибка, файл {file_path} не найден ")
         print(f"Файл {file_path} не найден")
         return []
     except Exception as e:
-        logging.error(f"Непредвиденная ошибка: {e}.")
+        logger.error(f"Непредвиденная ошибка: {e}.")
         print(f"Произошла ошибка при чтении файла: {e}.")
         return []
