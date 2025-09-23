@@ -1,12 +1,10 @@
-from src.masks import get_mask_account
-from src.masks import get_mask_card_number
-from src.utils import load_transactions
+from src.csv_excel_reader import read_csv_file
+from src.csv_excel_reader import read_excel_file
 
 
 def main() -> None:
-    load_transactions("data/operations.json")
-    get_mask_card_number("1234567823495678")
-    get_mask_account("12345678123567819234")
+    print(read_csv_file("data/transactions.csv"))
+    print(read_excel_file("data/transactions_excel.xlsx"))
 
 
 if __name__ == '__main__':
