@@ -178,3 +178,10 @@ def sample_dict_usd_transaction():
         "date": "2018-06-26T20:50:58.294041",
         "operationAmount": {"amount": "100.10", "currency": {"name": "usd.", "code": "USD"}},
     }
+
+
+@pytest.fixture
+def csv_excel_file_return_index_0():
+    return {'id': 650703.0, 'state': 'EXECUTED', 'date': '2023-09-05T11:30:32Z', 'amount': 16210.0,
+            'currency_name': 'Sol', 'currency_code': 'PEN', 'from': 'Счет 58803664561298323391',
+            'to': 'Счет 39745660563456619397', 'description': 'Перевод организации'}
