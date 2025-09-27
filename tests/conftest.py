@@ -185,3 +185,42 @@ def csv_excel_file_return_index_0():
     return {'id': 650703.0, 'state': 'EXECUTED', 'date': '2023-09-05T11:30:32Z', 'amount': 16210.0,
             'currency_name': 'Sol', 'currency_code': 'PEN', 'from': 'Счет 58803664561298323391',
             'to': 'Счет 39745660563456619397', 'description': 'Перевод организации'}
+
+
+@pytest.fixture
+def csv_excel_file_return():
+    return [
+        {
+            'id': 650703.0,
+            'state': 'EXECUTED',
+            'date': '2023-09-05T11:30:32Z',
+            'amount': 16210.0,
+            'currency_name': 'Sol',
+            'currency_code': 'PEN',
+            'from': 'Счет 58803664561298323391',
+            'to': 'Счет 39745660563456619397',
+            'description': 'Перевод организации'
+        },
+        {
+            'id': 650704.0,
+            'state': 'EXECUTED',
+            'date': '2023-09-05T11:30:32Z',
+            'amount': 16210.0,
+            'currency_name': 'Sol',
+            'currency_code': 'PEN',
+            'from': 'Счет 58803664561298323391',
+            'to': 'Счет 39745660563456619397',
+            'description': 'Перевод организации'
+        },
+        {
+            'id': 650705.0,
+            'state': 'EXECUTED',
+            'date': '2023-09-06T12:00:00Z',
+            'amount': 5000.0,
+            'currency_name': 'RUB',
+            'currency_code': 'RUB',
+            'from': 'Счет 12345678901234567890',
+            'to': 'Счет 09876543210987654321',
+            'description': 'Оплата услуг'
+        }
+    ]

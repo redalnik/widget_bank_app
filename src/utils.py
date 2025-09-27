@@ -50,6 +50,8 @@ def process_bank_search(data: list[dict], search: str) -> list[dict]:
 
 def process_bank_operations(data: list[dict], categories: list) -> dict:
     """Считает количество банковских операций по заданным категориям."""
+    if isinstance(categories, str):
+        return {}
     logger.info("Запуск функции process_bank_operations")
     categories = [category.lower() for category in categories]
     counter = Counter()
