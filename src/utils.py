@@ -1,5 +1,7 @@
 import json
 import logging
+import re
+from collections import Counter
 from typing import Any
 from typing import Dict
 from typing import List
@@ -33,3 +35,29 @@ def load_transactions(file_path: str) -> List[Dict[str, Any]]:
         logger.error(f"Непредвиденная ошибка: {e}.")
         print(f"Произошла ошибка при чтении файла: {e}.")
         return []
+
+
+def process_bank_search(data: list[dict], search: str) -> list[dict]:
+    """Фильтрует список банковских операций по наличию строки поиска в описании."""
+    pattern = re.compile(search, re.IGNORECASE)
+    result = []
+    for transaction in data:
+        description = transaction.get("description")
+        if isinstance(description, str) and pattern.search(description):
+            result.append(transaction)
+    return result
+
+
+def process_bank_operations(data: list[dict], categories: list) -> dict:
+    """Считает количество банковских операций по заданным категориям."""
+    logger.info("Запуск функции process_bank_operations")
+    categories = [category.lower() for category in categories]
+    counter = Counter()
+    for transaction in data:
+        description = transaction.get("description")
+        description_lower = description.lower()
+        for category in categories:
+            if category in description_lower:
+                counter[category] += 1
+    logger.info(f"Результат подсчёта: {counter}")
+    return dict(counter)
