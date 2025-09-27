@@ -24,3 +24,14 @@ def get_date(received_date: str) -> str:
         return date_obj.strftime("%d.%m.%Y")
     except (ValueError, TypeError):
         return "Некорректный формат даты"
+
+
+def get_operation_amount(transaction: dict) -> tuple[str, str]:
+    """Возвращает сумму и код валюты из транзакции.Работает как с JSON, так и с CSV/XLSX."""
+    if "operationAmount" in transaction:
+        amount = transaction["operationAmount"]["amount"]
+        currency_code = transaction["operationAmount"]["currency"]["code"]
+    else:
+        amount = transaction.get("amount", "0")
+        currency_code = transaction.get("currency_code", "")
+    return str(amount), currency_code

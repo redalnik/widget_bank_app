@@ -1,12 +1,15 @@
 from typing import Generator
 from typing import Iterator
 
+from src.widget import get_operation_amount
+
 
 def filter_by_currency(transactions: list[dict], currency: "str") -> Iterator[dict]:
     """Функция принимает список словарей, представляющих транзакции и возвращает итератор,
     который поочередно выдает транзакции, где валюта операции соответствует заданной (например, USD)."""
     for transaction in transactions:
-        if transaction["operationAmount"]["currency"]["code"] == currency:
+        amount, currency_code = get_operation_amount(transaction)
+        if currency_code == currency:
             yield transaction
 
 
