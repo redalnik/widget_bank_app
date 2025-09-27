@@ -10,7 +10,7 @@ from src.widget import get_operation_amount
 from src.widget import mask_account_card
 
 
-def main():
+def main() -> None:
     print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.")
     print("Выберите необходимый пункт меню:")
     print("1. Получить информацию о транзакциях из JSON-файла")
@@ -59,14 +59,14 @@ def main():
     # Фильтр по рублям
     ruble_filter = input("Выводить только рублевые транзакции? Да/Нет ").strip().lower()
     if ruble_filter == "да":
-        filtered_by_status = filter_by_currency(filtered_by_status, "RUB")
+        filtered_by_status = list(filter_by_currency(filtered_by_status, "RUB"))
     # print(filtered_by_status)
 
     # Поиск по слову в описании
     search_word = input("Отфильтровать список транзакций по определённому слову в описании? Да/Нет ").strip().lower()
     if search_word == "да":
         word = input("Введите слово для поиска в описании: ").strip()
-        filtered_by_status = process_bank_search(filtered_by_status, word)
+        filtered_by_status = list(process_bank_search(filtered_by_status, word))
 
     # Вывод результатов
     print("Распечатываю итоговый список транзакций...\n")

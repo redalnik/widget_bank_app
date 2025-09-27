@@ -54,9 +54,11 @@ def process_bank_operations(data: list[dict], categories: list) -> dict:
         return {}
     logger.info("Запуск функции process_bank_operations")
     categories = [category.lower() for category in categories]
-    counter = Counter()
+    counter: Counter = Counter()
     for transaction in data:
         description = transaction.get("description")
+        if not isinstance(description, str):
+            continue
         description_lower = description.lower()
         for category in categories:
             if category in description_lower:
