@@ -5,7 +5,8 @@ from src.processing import filter_by_state
 from src.processing import sort_by_date
 from src.utils import load_transactions
 from src.utils import process_bank_search
-from src.widget import get_date, get_operation_amount
+from src.widget import get_date
+from src.widget import get_operation_amount
 from src.widget import mask_account_card
 
 
@@ -52,7 +53,7 @@ def main():
     sort_operation_by_date = input("Отсортировать операции по дате? Да/Нет ").strip().lower()
     if sort_operation_by_date == "да":
         order = input("Отсортировать по возрастанию или по убыванию? ").strip().lower()
-        ascending = order in ["по возрастанию", "возрастанию"]
+        ascending = order in ["по убыванию", "убыванию"]
         filtered_by_status = sort_by_date(filtered_by_status, ascending)
         # print(filtered_by_status)
     # Фильтр по рублям
@@ -76,8 +77,8 @@ def main():
         for transaction in filtered_by_status:
             date_str = get_date(transaction["date"])
             description = transaction.get("description", "")
-            from_field = transaction.get("from", "")
-            to_field = transaction.get("to", "")
+            from_field = str(transaction.get("from", ""))
+            to_field = str(transaction.get("to", ""))
             masked_from = mask_account_card(from_field)
             masked_to = mask_account_card(to_field)
             amount, currency = get_operation_amount(transaction)
